@@ -930,7 +930,7 @@ def change_password(request):
                 messages.success(request, 'Your password was successfully updated!')
                 update_session_auth_hash(request, user)  # Important!
                 # Send the successfully reset password message via email
-                change_password_message = f"http://127.0.0.1:8000/login/"
+                change_password_message = f"https://timber-a6qo.onrender.com/login/"
                 email_content = f"""
                 <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); overflow: hidden;">
                     <div style="background-color: #007BFF; color: #ffffff; text-align: center; padding: 20px;">
@@ -970,7 +970,7 @@ def delete_user(request):
     user = request.user
     current_tab = request.GET.get('tab', 'AdvancedSettings')
     if request.method == 'POST':
-        delete_user_message = f"http://127.0.0.1:8000/signup/"
+        delete_user_message = f"https://timber-a6qo.onrender.com/signup/"
         email_content = f"""
         <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); overflow: hidden;">
             <div style="background-color: #007BFF; color: #ffffff; text-align: center; padding: 20px;">
@@ -1165,7 +1165,7 @@ def forgot_password(request):
             # Create a PasswordResetToken instance
             PasswordResetToken.objects.create(user=user, token=token)
             # Send the reset link via email
-            reset_link = f"http://127.0.0.1:8000/reset_password/{token}/"
+            reset_link = f"https://timber-a6qo.onrender.com/reset_password/{token}/"
             email_content = f"""
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); overflow: hidden;">
                 <div style="background-color: #007BFF; color: #ffffff; text-align: center; padding: 20px;">
@@ -1224,7 +1224,7 @@ def reset_password(request, token):
             user.password = make_password(password1)  # Hash the new password
             user.save()
             # Send the successfully reset password message via email
-            reset_password_message = f"http://127.0.0.1:8000/login/"
+            reset_password_message = f"https://timber-a6qo.onrender.com/login/"
             email_content = f"""
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); overflow: hidden;">
                 <div style="background-color: #007BFF; color: #ffffff; text-align: center; padding: 20px;">
@@ -1298,7 +1298,7 @@ def signup(request):
                 request, "Successfully created your account."
             )  # Add success message
             # send mail after creating successfully account
-            welcome_link = f"http://127.0.0.1:8000/"
+            welcome_link = f"https://timber-a6qo.onrender.com/"
             email_content = f"""
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); overflow: hidden;">
                 <div style="background-color: #007BFF; color: #ffffff; text-align: center; padding: 20px;">

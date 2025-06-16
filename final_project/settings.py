@@ -35,7 +35,8 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'timber-a6qo.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://timber-a6qo.onrender.com']
 # set site id
 SITE_ID = 1
 
@@ -46,14 +47,14 @@ GITHUB_CLIENT_ID = 'Ov23liiNAiIxXnKEkNo7'
 GITHUB_CLIENT_SECRET = 'b9c0d1641b50c8ef132e8d2a1152345fdc154b04'
 
 # Add a URL for the callback
-GITHUB_CALLBACK_URL = 'http://127.0.0.1:8000/github/callback/'
+GITHUB_CALLBACK_URL = 'https://timber-a6qo.onrender.com/github/callback/'
 
 # Add your Google Client ID and Secret
 GOOGLE_CLIENT_ID = "55543214080-93k2v44h75tp0p6l3h55lh0qhs6bgdem.apps.googleusercontent.com"
 GOOGLE_CLIENT_SECRET = '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'
 
 # Add a URL for the callback
-GOOGLE_CALLBACK_URL = 'http://127.0.0.1:8000/google/callback/'
+GOOGLE_CALLBACK_URL = 'https://timber-a6qo.onrender.com/google/callback/'
 
 
 
