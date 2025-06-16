@@ -43,15 +43,15 @@ SITE_ID = 1
 # Application definition
 
 # Add your GitHub Client ID and Secret
-GITHUB_CLIENT_ID = 'Ov23liiNAiIxXnKEkNo7'
-GITHUB_CLIENT_SECRET = 'b9c0d1641b50c8ef132e8d2a1152345fdc154b04'
+GITHUB_CLIENT_ID = env('GITHUB_CLIENT_ID')
+GITHUB_CLIENT_SECRET = env('GITHUB_CLIENT_SECRET')
 
 # Add a URL for the callback
 GITHUB_CALLBACK_URL = 'https://timber-a6qo.onrender.com/github/callback/'
 
 # Add your Google Client ID and Secret
-GOOGLE_CLIENT_ID = "55543214080-93k2v44h75tp0p6l3h55lh0qhs6bgdem.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET = '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'
+GOOGLE_CLIENT_ID = env('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = env('GOOGLE_CLIENT_SECRET')
 
 # Add a URL for the callback
 GOOGLE_CALLBACK_URL = 'https://timber-a6qo.onrender.com/google/callback/'
