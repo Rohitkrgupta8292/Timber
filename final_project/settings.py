@@ -47,7 +47,7 @@ GITHUB_CLIENT_ID = env('GITHUB_CLIENT_ID')
 GITHUB_CLIENT_SECRET = env('GITHUB_CLIENT_SECRET')
 
 # Add a URL for the callback
-GITHUB_CALLBACK_URL = 'https://timber-a6qo.onrender.com/github/callback/'
+GITHUB_CALLBACK_URL = 'https://timber-a6qo.onrender.com//github/callback/'
 
 # Add your Google Client ID and Secret
 GOOGLE_CLIENT_ID = env('GOOGLE_CLIENT_ID')

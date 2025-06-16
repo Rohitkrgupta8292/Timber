@@ -106,12 +106,12 @@ def google_callback(request):
     if "error" in response_data:
         messages.error(request, f"Error during Google login: {response_data['error']}")
         return redirect("login")
-    access_token = response_data.get("access_token")
+    id_token_str = response_data.get("id_token")
 
     # Verify the token and get user info
     try:
         idinfo = id_token.verify_oauth2_token(
-            access_token, google_requests.Request(), settings.GOOGLE_CLIENT_ID
+            id_token_str, google_requests.Request(), settings.GOOGLE_CLIENT_ID
         )
         user_email = idinfo["email"]
         user = User.objects.get(email=user_email)
