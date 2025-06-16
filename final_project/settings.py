@@ -17,7 +17,7 @@ env = Env()
 Env.read_env()
 
 ENVIRONMENT = env("ENVIRONMENT", default="production")
-# ENVIRONMENT = 'production'
+ENVIRONMENT = 'production'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -66,8 +66,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.sessions",
     "django.contrib.staticfiles",
-    "cloudinary",
     "cloudinary_storage",
+    "cloudinary",
     "django.contrib.sites",
     "compressor",
     "tinymce",
@@ -191,7 +191,15 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 # Media files configuration
 if ENVIRONMENT == 'production':
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STORAGES = {
+        'default': {
+            'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
+       },
+        'staticfiles': {
+            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+        },
+    }
     CLOUDINARY_STORAGE = {
         'CLOUDINARY_URL': env('CLOUDINARY_URL')
     }
