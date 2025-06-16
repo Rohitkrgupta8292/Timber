@@ -114,7 +114,7 @@ def google_callback(request):
             id_token_str, google_requests.Request(), settings.GOOGLE_CLIENT_ID
         )
         user_email = idinfo["email"]
-        user = User.objects.get(email=user_email)
+        # user = User.objects.get(email=user_email)
         # use get -r create to find or create the user
         user, created = User.objects.get_or_create(email=user_email)
         if created:
