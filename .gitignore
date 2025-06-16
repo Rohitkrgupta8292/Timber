@@ -1,0 +1,9 @@
+.vscode
+node_modules
+.DS_Store
+media/
+migrations/
+# Ignore Python cache files
+__pycache__/
+db.sqlite3
+.env/
