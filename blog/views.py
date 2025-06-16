@@ -73,6 +73,7 @@ def github_callback(request):
         if created:
             user.auth_method = "github"
             user.save()
+            messages.success(request, "Account created successfully with GitHub.")
         if user.auth_method != "github":
             messages.error(request, "You didn't create your account with github")
             return redirect("login")
