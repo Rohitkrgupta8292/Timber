@@ -151,16 +151,23 @@ if ENVIRONMENT == 'development':
         }
     }
 else:
+    import dj_database_url
+    
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        "default": dj_database_url.config(
+            default=os.environ.get("DATABASE_URL")
+        )
     }
-}
+#     DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOST'),
+#         'PORT': env('DB_PORT'),
+#     }
+# }
     # import dj_database_url
     # DATABASES = {
     #     "default": dj_database_url.parse(env('DATABASE_URL'))
