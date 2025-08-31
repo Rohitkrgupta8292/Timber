@@ -17,7 +17,7 @@ env = Env()
 Env.read_env()
 
 ENVIRONMENT = env("ENVIRONMENT", default="production")
-ENVIRONMENT = 'production'
+ENVIRONMENT = 'production'  # change to 'production' when deploying
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,7 +42,7 @@ SITE_ID = 1
 
 # Application definition
 
-# Add your GitHub Client ID and Secret
+# Add your GitHub Client ID and Secretf
 GITHUB_CLIENT_ID = env('GITHUB_CLIENT_ID')
 GITHUB_CLIENT_SECRET = env('GITHUB_CLIENT_SECRET')
 
@@ -142,7 +142,7 @@ EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = f"Timber {env('EMAIL_ADDRESS')}"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+# print(ENVIRONMENT)
 if ENVIRONMENT == 'development':
     DATABASES = {
         "default": {
@@ -151,10 +151,20 @@ if ENVIRONMENT == 'development':
         }
     }
 else:
-    import dj_database_url
     DATABASES = {
-        "default": dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
+}
+    # import dj_database_url
+    # DATABASES = {
+    #     "default": dj_database_url.parse(env('DATABASE_URL'))
+    # }
 
 AUTH_USER_MODEL = "blog.User"
 
